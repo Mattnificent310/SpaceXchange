@@ -5,31 +5,32 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.rest.models.City;
 import com.example.rest.models.Location;
 import com.example.rest.models.Supplier;
-import com.example.rest.repositories.LocationRepo;
+import com.example.rest.repositories.CityRepo;
 import com.example.rest.repositories.SupplierRepo;
 
 @Service
-public class LocationService {
+public class CityService {
 	 @Autowired
-	 LocationRepo repo;
-	 public Iterable <Location>findAllLocations()
+	 CityRepo repo;
+	 public Iterable <City>findAllCities()
 		{
 			return repo.findAll();
 		}
 		
-		public Optional<Location> findLocationById(long id)
+		public Optional<City> findCityById(long id)
 		{
 			return repo.findById(id);
 		}
 		
-		public void createLocation(Location model)
+		public void createCity(City model)
 		{
 			 repo.save(model);
 		}
 		
-		public void removeLocation(long id)
+		public void removeCity(long id)
 		{
 			repo.deleteById(id);
 		}

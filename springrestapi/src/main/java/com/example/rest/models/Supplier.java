@@ -19,7 +19,7 @@ public class Supplier {
 	private String title;
 	private String name;
 	private String surname;
-	private boolean gender;
+	private String gender;
 	private Date brithDate;
 	private String phone;
 	private String email;
@@ -103,13 +103,13 @@ public class Supplier {
 	/**
 	 * @return the gender
 	 */
-	public boolean isGender() {
+	public String isGender() {
 		return gender;
 	}
 	/**
 	 * @param gender the gender to set
 	 */
-	public void setGender(boolean gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	/**

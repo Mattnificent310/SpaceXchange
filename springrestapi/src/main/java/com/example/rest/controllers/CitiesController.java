@@ -11,45 +11,46 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.rest.models.Buyer;
+import com.example.rest.models.City;
 import com.example.rest.models.Location;
 import com.example.rest.models.Vehicle;
-import com.example.rest.services.LocationService;
+import com.example.rest.services.CityService;
 import com.example.rest.services.VehicleService;
 
 @RestController
-public class LocationsController {
+public class CitiesController {
 	
 @Autowired
-LocationService service;
+CityService service;
 
-@RequestMapping(value = "/locations", method = RequestMethod.GET)
-public Iterable<Location> getLocations()
+@RequestMapping(value = "/cities", method = RequestMethod.GET)
+public Iterable<City> getLocations()
 {
-  return service.findAllLocations();
+  return service.findAllCities();
 }
 
-@RequestMapping(value = "/locations/{Id}", method = RequestMethod.GET)
-public Optional<Location> getLocation(@PathVariable Long Id)
+@RequestMapping(value = "/cities/{Id}", method = RequestMethod.GET)
+public Optional<City> getLocation(@PathVariable Long Id)
 {
-  return service.findLocationById(Id);
+  return service.findCityById(Id);
 }
 
-@RequestMapping(value = "/locations", method = RequestMethod.POST)
-public void post(@RequestBody Location model)
+@RequestMapping(value = "/cities", method = RequestMethod.POST)
+public void post(@RequestBody City model)
 {
-   service.createLocation(model);
+   service.createCity(model);
 }
 
-@RequestMapping(value = "/locations/{Id}", method = RequestMethod.PUT)
-public void put(@PathVariable Long Id, @RequestBody Location model)
+@RequestMapping(value = "/cities/{Id}", method = RequestMethod.PUT)
+public void put(@PathVariable Long Id, @RequestBody City model)
 {
-  service.createLocation(model);
+  service.createCity(model);
 }
 
 @RequestMapping(value = "/locations/{Id}", method = RequestMethod.DELETE)
 public void delete(@PathVariable Long Id)
 {
-  service.removeLocation(Id);
+  service.removeCity(Id);
 }
 
 }
