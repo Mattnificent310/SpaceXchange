@@ -2,19 +2,16 @@ package com.example.rest.models;
 
 import java.sql.Date;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Buyer {
@@ -28,10 +25,9 @@ public class Buyer {
 	private Date birthDate;
 	private String contactNumber;
 	private String emailAddress;
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)	
-	private Location location;
+   private Location locationId;
 	/**
 	 * @return the id
 	 */
@@ -146,13 +142,13 @@ public class Buyer {
 	 * @return the location
 	 */
 	public Location getLocation() {
-		return location;
+		return locationId;
 	}
 	/**
 	 * @param location the location to set
 	 */
 	public void setLocation(Location location) {
-		this.location = location;
+		this.locationId = location;
 	}
 	
 	

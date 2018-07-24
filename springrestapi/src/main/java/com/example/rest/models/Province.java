@@ -1,29 +1,26 @@
 package com.example.rest.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Province {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long provinceId;
 	private String province;
 	private String provinceCode;
-	@OneToOne(fetch = FetchType.EAGER, optional = false)
+	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "country_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)	
-	private Country country;
+    private Country country;
 	/**
 	 * @return the id
 	 */
@@ -34,7 +31,6 @@ public class Province {
 	 * @param id the id to set
 	 */
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)		
 	public void setId(Long id) {
 		this.provinceId = id;
 	}

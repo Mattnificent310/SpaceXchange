@@ -8,6 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class Country {
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)	
 	private Long countryId;
 	private String countryName;
 	private String countryCode;
@@ -21,7 +22,6 @@ public class Country {
 	 * @param id the id to set
 	 */
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)	
 	public void setId(Long id) {
 		this.countryId = id;
 	}

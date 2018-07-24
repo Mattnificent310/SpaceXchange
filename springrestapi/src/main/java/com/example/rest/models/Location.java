@@ -1,21 +1,19 @@
 package com.example.rest.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Location {
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)	
 	private Long locationId;
 	private String unitNumber;
 	private String complexName;
@@ -23,9 +21,8 @@ public class Location {
 	private String streetName;
 	private String suburbName;
 	private String zipCode;
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "city_id")
-	@OnDelete(action = OnDeleteAction.CASCADE)
 	private City city;
 
 	/**
@@ -40,7 +37,6 @@ public class Location {
 	 *            the id to set
 	 */
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	public void setId(Long id) {
 		this.locationId = id;
 	}
