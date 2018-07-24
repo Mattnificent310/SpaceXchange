@@ -2,6 +2,7 @@ package com.example.rest.models;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,6 +20,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 public class Buyer {
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)		
 	private Long buyerId;
 	private String alias;
 	private String title;
@@ -28,10 +30,9 @@ public class Buyer {
 	private Date birthDate;
 	private String contactNumber;
 	private String emailAddress;
-	@OneToOne(fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "location_id")
-    @OnDelete(action = OnDeleteAction.CASCADE)	
-	private Location location;
+    private Location location;
 	/**
 	 * @return the id
 	 */
@@ -42,7 +43,6 @@ public class Buyer {
 	 * @param id the id to set
 	 */
 	
-	@GeneratedValue(strategy = GenerationType.AUTO)		
 	public void setId(Long id) {
 		this.buyerId = id;
 	}

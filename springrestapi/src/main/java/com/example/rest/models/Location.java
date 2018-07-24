@@ -1,5 +1,6 @@
 package com.example.rest.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,33 +17,30 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 public class Location {
 	@Id
+	@GeneratedValue(strategy = GenerationType.TABLE)	
 	private Long locationId;
 	private String unitNumber;
 	private String complexName;
 	private String streetNumber;
 	private String streetName;
 	private String suburbName;
-	private String zipCode;
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "city_id")
-	@OnDelete(action = OnDeleteAction.CASCADE)
+	private String zipCode;	
+	@OneToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "city_id") 	
 	private City city;
 
 	/**
-	 * @return the id
+	 * @return the locationId
 	 */
-	public Long getId() {
+	public Long getLocationId() {
 		return locationId;
 	}
 
 	/**
-	 * @param id
-	 *            the id to set
+	 * @param locationId the locationId to set
 	 */
-	
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	public void setId(Long id) {
-		this.locationId = id;
+	public void setLocationId(Long locationId) {
+		this.locationId = locationId;
 	}
 
 	/**
@@ -53,8 +51,7 @@ public class Location {
 	}
 
 	/**
-	 * @param unitNumber
-	 *            the unitNumber to set
+	 * @param unitNumber the unitNumber to set
 	 */
 	public void setUnitNumber(String unitNumber) {
 		this.unitNumber = unitNumber;
@@ -68,8 +65,7 @@ public class Location {
 	}
 
 	/**
-	 * @param complexName
-	 *            the complexName to set
+	 * @param complexName the complexName to set
 	 */
 	public void setComplexName(String complexName) {
 		this.complexName = complexName;
@@ -83,8 +79,7 @@ public class Location {
 	}
 
 	/**
-	 * @param streetNumber
-	 *            the streetNumber to set
+	 * @param streetNumber the streetNumber to set
 	 */
 	public void setStreetNumber(String streetNumber) {
 		this.streetNumber = streetNumber;
@@ -98,8 +93,7 @@ public class Location {
 	}
 
 	/**
-	 * @param streetName
-	 *            the streetName to set
+	 * @param streetName the streetName to set
 	 */
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
@@ -113,8 +107,7 @@ public class Location {
 	}
 
 	/**
-	 * @param suburbName
-	 *            the suburbName to set
+	 * @param suburbName the suburbName to set
 	 */
 	public void setSuburbName(String suburbName) {
 		this.suburbName = suburbName;
@@ -128,8 +121,7 @@ public class Location {
 	}
 
 	/**
-	 * @param zipCode
-	 *            the zipCode to set
+	 * @param zipCode the zipCode to set
 	 */
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
@@ -143,11 +135,12 @@ public class Location {
 	}
 
 	/**
-	 * @param city
-	 *            the city to set
+	 * @param city the city to set
 	 */
 	public void setCity(City city) {
 		this.city = city;
 	}
+
+	
 
 }
