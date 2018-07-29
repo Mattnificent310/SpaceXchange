@@ -24,7 +24,7 @@ public class CitiesController {
 CityService service;
 
 @RequestMapping(value = "/cities", method = RequestMethod.GET)
-public Iterable<City> getLocations()
+public Iterable<City> getCities()
 {
   return service.findAllCities();
 }
@@ -47,7 +47,7 @@ public void put(@PathVariable Long Id, @RequestBody City model)
   service.createCity(model);
 }
 
-@RequestMapping(value = "/locations/{Id}", method = RequestMethod.DELETE)
+@RequestMapping(value = "/cities/{Id}", method = RequestMethod.DELETE)
 public void delete(@PathVariable Long Id)
 {
   service.removeCity(Id);

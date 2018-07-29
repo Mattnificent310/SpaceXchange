@@ -19,7 +19,7 @@ public class SuppliersController {
 	SupplierService service;
 
 	@RequestMapping(value = "/suppliers", method = RequestMethod.GET)
-	public Iterable<Supplier> getBuyers()
+	public Iterable<Supplier> getTrackings()
 	{
 	  return service.findAllSuppliers();
 	}
