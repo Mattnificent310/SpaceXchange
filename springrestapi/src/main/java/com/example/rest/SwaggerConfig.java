@@ -55,7 +55,7 @@ public class SwaggerConfig {
 
     private static final String CLIENT_ID = "space_exchange";
 	private static final String CLIENT_SECRET = "secret";
-	private static final String AUTH_SERVER = "oauth2";
+	private static final String AUTH_SERVER = "localhost:8084";
 
 
 	@Bean
