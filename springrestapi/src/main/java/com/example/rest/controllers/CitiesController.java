@@ -30,7 +30,7 @@ public Iterable<City> getCities()
 }
 
 @RequestMapping(value = "/cities/{Id}", method = RequestMethod.GET)
-public Optional<City> getLocation(@PathVariable Long Id)
+public Optional<City> getCity(@PathVariable Long Id)
 {
   return service.findCityById(Id);
 }
