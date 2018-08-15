@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Location {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long locationId;
 	private String unitNumber;
 	private String complexName;

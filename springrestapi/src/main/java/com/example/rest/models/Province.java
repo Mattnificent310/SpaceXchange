@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 public class Province {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long provinceId;
 	private String province;
 	private String provinceCode;

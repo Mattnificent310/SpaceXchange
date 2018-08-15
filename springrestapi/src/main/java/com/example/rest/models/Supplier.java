@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class Supplier {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	private Long supplierId;
 	private String alias;
 	private String title;

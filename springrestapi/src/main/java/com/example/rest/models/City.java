@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class City {
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 		private Long cityId;
 		private String cityName;
 		private String cityCode;

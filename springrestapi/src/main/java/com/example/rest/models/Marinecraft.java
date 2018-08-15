@@ -1,4 +1,3 @@
-
 package com.example.rest.models;
 
 import javax.persistence.Entity;
@@ -10,36 +9,35 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Vehicle {
+public class Marinecraft {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long vehicleId;
+	private Long marineCraftId;
 	private String registration;
-	private String vin;
+	private String avatar;
+	private String classification;
 	private String type;
 	private String make;
 	private String model;
-	private String classification;
 	private String colour;
+	private String alias;
 	@OneToOne(optional = true)
 	@JoinColumn(name = "dimension_id",insertable = true, updatable = true)
 	private Dimension dimension;
 	@OneToOne(optional = true)
-	@JoinColumn(name = "capacity_id", insertable = true, updatable = true)
+	@JoinColumn(name = "capacity_id",insertable = true, updatable = true)
 	private Capacity capacity;
-	private String avatar;
-	private boolean deleted;
 	/**
-	 * @return the vehicleId
-	 */	
-	public Long getVehicleId() {
-		return vehicleId;
+	 * @return the marineCraftId
+	 */
+	public Long getMarineCraftId() {
+		return marineCraftId;
 	}
 	/**
-	 * @param vehicleId the vehicleId to set
+	 * @param marineCraftId the marineCraftId to set
 	 */
-	public void setVehicleId(Long vehicleId) {
-		this.vehicleId = vehicleId;
+	public void setMarineCraftId(Long marineCraftId) {
+		this.marineCraftId = marineCraftId;
 	}
 	/**
 	 * @return the registration
@@ -54,16 +52,28 @@ public class Vehicle {
 		this.registration = registration;
 	}
 	/**
-	 * @return the vin
+	 * @return the avatar
 	 */
-	public String getVin() {
-		return vin;
+	public String getAvatar() {
+		return avatar;
 	}
 	/**
-	 * @param vin the vin to set
+	 * @param avatar the avatar to set
 	 */
-	public void setVin(String vin) {
-		this.vin = vin;
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+	/**
+	 * @return the classification
+	 */
+	public String getClassification() {
+		return classification;
+	}
+	/**
+	 * @param classification the classification to set
+	 */
+	public void setClassification(String classification) {
+		this.classification = classification;
 	}
 	/**
 	 * @return the type
@@ -102,18 +112,6 @@ public class Vehicle {
 		this.model = model;
 	}
 	/**
-	 * @return the classification
-	 */
-	public String getClassification() {
-		return classification;
-	}
-	/**
-	 * @param classification the classification to set
-	 */
-	public void setClassification(String classification) {
-		this.classification = classification;
-	}
-	/**
 	 * @return the colour
 	 */
 	public String getColour() {
@@ -125,7 +123,18 @@ public class Vehicle {
 	public void setColour(String colour) {
 		this.colour = colour;
 	}
-	
+	/**
+	 * @return the alias
+	 */
+	public String getAlias() {
+		return alias;
+	}
+	/**
+	 * @param alias the alias to set
+	 */
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 	/**
 	 * @return the dimension
 	 */
@@ -139,46 +148,16 @@ public class Vehicle {
 		this.dimension = dimension;
 	}
 	/**
-	 * @return the loadCapacity
+	 * @return the capacity
 	 */
 	public Capacity getCapacity() {
 		return capacity;
 	}
 	/**
-	 * @param capacity the loadCapacity to set
+	 * @param capacity the capacity to set
 	 */
-	public void setCapacity(Capacity loadCapacity) {
-		this.capacity = loadCapacity;
-	}
-	/**
-	 * @return the avatar
-	 */
-	public String getAvatar() {
-		return avatar;
-	}
-	/**
-	 * @param avatar the avatar to set
-	 */
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-	/**
-	 * @return the fuelConsumption
-	 */
-	
-	/**
-	 * @return the deleted
-	 */
-	public boolean isDeleted() {
-		return deleted;
-	}
-	/**
-	 * @param deleted the deleted to set
-	 */
-	public void setDeleted(boolean deleted) {
-		this.deleted = deleted;
+	public void setCapacity(Capacity capacity) {
+		this.capacity = capacity;
 	}
 	
-	
-
 }

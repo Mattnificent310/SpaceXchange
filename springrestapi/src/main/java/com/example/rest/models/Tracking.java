@@ -3,11 +3,14 @@ package com.example.rest.models;
 import java.sql.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Tracking {
 @Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long trackingId;
 private String latitude;
 private String longitude;
