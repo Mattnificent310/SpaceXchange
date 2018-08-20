@@ -1,12 +1,10 @@
 package com.example.rest.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
@@ -18,8 +16,8 @@ public class Province {
 	private Long provinceId;
 	private String province;
 	private String provinceCode;
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "country_id")
+	@OneToOne(optional = true)
+    @JoinColumn(name = "country_id",insertable = true, updatable = true)
     private Country country;
 	/**
 	 * @return the id
@@ -30,7 +28,7 @@ public class Province {
 	/**
 	 * @param id the id to set
 	 */
-	
+
 	public void setId(Long id) {
 		this.provinceId = id;
 	}
@@ -70,6 +68,6 @@ public class Province {
 	public void setCountry(Country country) {
 		this.country = country;
 	}
-	
-	
+
+
 }

@@ -1,19 +1,17 @@
 package com.example.rest.models;
 
 import java.sql.Date;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Supplier {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long supplierId;
 	private String alias;
 	private String title;
@@ -23,11 +21,11 @@ public class Supplier {
 	private Date brithDate;
 	private String phone;
 	private String email;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "location_id")
+
+	@OneToOne(optional = true)
+    @JoinColumn(name = "location_id",insertable = true, updatable = true)
 	private Location location;
-	
+
 	/**
 	 * @return the location
 	 */
@@ -148,6 +146,6 @@ public class Supplier {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
+
+
 }

@@ -1,7 +1,6 @@
 package com.example.rest.models;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -159,5 +158,5 @@ public class Marinecraft {
 	public void setCapacity(Capacity capacity) {
 		this.capacity = capacity;
 	}
-	
+
 }

@@ -1,23 +1,21 @@
 package com.example.rest.models;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class City {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long cityId;
 		private String cityName;
 		private String cityCode;
-		@OneToOne(cascade = CascadeType.ALL)
-	    @JoinColumn(name = "province_id")
+		@OneToOne(optional = true)
+	    @JoinColumn(name = "province_id",insertable = true, updatable = true)
 	    private Province provinceId;
 		/**
 		 * @return the id
@@ -28,7 +26,7 @@ public class City {
 		/**
 		 * @param id the id to set
 		 */
-		
+
 		public void setId(Long id) {
 			this.cityId = id;
 		}
@@ -68,6 +66,6 @@ public class City {
 		public void setProvince(Province province) {
 			this.provinceId = province;
 		}
-		
-		
+
+
 }

@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +17,7 @@ public class Passenger {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long passengerId;
 	@OneToOne(fetch = FetchType.LAZY, optional = true)
-	@JoinColumn(name = "buyer_id")
+	@JoinColumn(name = "buyer_id",insertable = true, updatable = true)
 	private Buyer buyer;
 	private String title;
 	private String name;
@@ -28,7 +27,7 @@ public class Passenger {
 	private String phone;
 	private String email;
 	@OneToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "location_id")
+	@JoinColumn(name = "location_id",insertable = true, updatable = true)
 	private Location location;
 	private boolean deleted;
 	/**
@@ -163,5 +162,5 @@ public class Passenger {
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}
-	
+
 }

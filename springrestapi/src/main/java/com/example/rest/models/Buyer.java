@@ -2,20 +2,18 @@ package com.example.rest.models;
 
 import java.sql.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
 @Entity
 public class Buyer {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long buyerId;
 	private String alias;
 	private String title;
@@ -25,8 +23,8 @@ public class Buyer {
 	private Date birthDate;
 	private String contactNumber;
 	private String emailAddress;
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "location_id")
+	@OneToOne(optional = true)
+    @JoinColumn(name = "location_id",insertable = true, updatable = true)
    private Location locationId;
 	/**
 	 * @return the id
@@ -37,8 +35,8 @@ public class Buyer {
 	/**
 	 * @param id the id to set
 	 */
-	
-	@GeneratedValue(strategy = GenerationType.AUTO)		
+
+
 	public void setId(Long id) {
 		this.buyerId = id;
 	}
@@ -150,6 +148,6 @@ public class Buyer {
 	public void setLocation(Location location) {
 		this.locationId = location;
 	}
-	
-	
+
+
 }
