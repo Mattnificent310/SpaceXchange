@@ -4,8 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class City {
@@ -14,8 +13,7 @@ public class City {
 		private Long cityId;
 		private String cityName;
 		private String cityCode;
-		@OneToOne(optional = true)
-	    @JoinColumn(name = "province_id",insertable = true, updatable = true)
+		@ManyToOne(optional = true)
 	    private Province provinceId;
 		/**
 		 * @return the id

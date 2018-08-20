@@ -4,8 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Aircraft {
@@ -21,11 +20,9 @@ private String model;
 private String colour;
 private String alias;
 private double wingSpan;
-@OneToOne(optional = true)
-@JoinColumn(name = "dimension_id", insertable = true, updatable = true)
+@ManyToOne(optional = true)
 private Dimension dimension;
-@OneToOne(optional = true)
-@JoinColumn(name = "capacity_id", insertable = true, updatable = true)
+@ManyToOne(optional = true)
 private Capacity capacity;
 /**
  * @return the aircraftId

@@ -2,12 +2,10 @@
 package com.example.rest.models;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Vehicle {
@@ -21,17 +19,15 @@ public class Vehicle {
 	private String model;
 	private String classification;
 	private String colour;
-	@OneToOne(optional = true)
-	@JoinColumn(name = "dimension_id",insertable = true, updatable = true)
+	@ManyToOne(optional = true)
 	private Dimension dimension;
-	@OneToOne(optional = true)
-	@JoinColumn(name = "capacity_id", insertable = true, updatable = true)
+	@ManyToOne(optional = true)
 	private Capacity capacity;
 	private String avatar;
 	private boolean deleted;
 	/**
 	 * @return the vehicleId
-	 */	
+	 */
 	public Long getVehicleId() {
 		return vehicleId;
 	}
@@ -125,7 +121,7 @@ public class Vehicle {
 	public void setColour(String colour) {
 		this.colour = colour;
 	}
-	
+
 	/**
 	 * @return the dimension
 	 */
@@ -165,7 +161,7 @@ public class Vehicle {
 	/**
 	 * @return the fuelConsumption
 	 */
-	
+
 	/**
 	 * @return the deleted
 	 */
@@ -178,7 +174,7 @@ public class Vehicle {
 	public void setDeleted(boolean deleted) {
 		this.deleted = deleted;
 	}
-	
-	
+
+
 
 }

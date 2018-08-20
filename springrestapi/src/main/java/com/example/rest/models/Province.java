@@ -4,8 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -16,8 +15,7 @@ public class Province {
 	private Long provinceId;
 	private String province;
 	private String provinceCode;
-	@OneToOne(optional = true)
-    @JoinColumn(name = "country_id",insertable = true, updatable = true)
+	@ManyToOne(optional = true)
     private Country country;
 	/**
 	 * @return the id

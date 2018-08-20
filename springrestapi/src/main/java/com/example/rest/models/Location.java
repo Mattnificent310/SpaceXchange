@@ -4,9 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Location {
@@ -19,8 +17,7 @@ public class Location {
 	private String streetName;
 	private String suburbName;
 	private String zipCode;
-	@OneToOne(optional = true)
-	@JoinColumn(name = "city_id", insertable = true, updatable = true)
+	@ManyToOne(optional = true)
 	private City city;
 
 	/**
