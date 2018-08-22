@@ -2,14 +2,13 @@ package com.example.rest.services;
 
 import java.util.Optional;
 
+import com.example.rest.models.Aircraft;
+import com.example.rest.repositories.AircraftRepo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import com.example.rest.models.Aircraft;
-import com.example.rest.models.Buyer;
-import com.example.rest.repositories.AircraftRepo;
 
 @Service
 public class AircraftService {

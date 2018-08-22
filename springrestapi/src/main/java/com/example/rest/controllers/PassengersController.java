@@ -2,6 +2,8 @@ package com.example.rest.controllers;
 
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,17 +12,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.rest.models.Passenger;
 import com.example.rest.services.PassengerService;
-@CrossOrigin(origins = {"http://localhost:4200"}, maxAge = 6000, allowCredentials = "false") 
+@CrossOrigin(origins = {"http://localhost:4200"}, maxAge = 6000, allowCredentials = "false")
 @RestController
 public class PassengersController {
 
 	@Autowired
 	PassengerService service;
-	
+
 	@RequestMapping(value = "/passengers", method = RequestMethod.GET)
-	public Iterable<Passenger> getPassengers()
+	public Page<Passenger> getPassengers(Pageable pageable)
 	{
-	  return service.findAllPassengers();
+		Page page = service.findAllPassengers(pageable);
+		return page;
 	}
 
 	@RequestMapping(value = "/passengers/{Id}", method = RequestMethod.GET)

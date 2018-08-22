@@ -4,6 +4,8 @@ package com.example.rest.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.rest.models.Cargo;
 import com.example.rest.services.CargoService;
-@CrossOrigin(origins = {"http://localhost:4200"}, maxAge = 6000, allowCredentials = "false") 
+@CrossOrigin(origins = {"http://localhost:4200"}, maxAge = 6000, allowCredentials = "false")
 @RestController
 public class CargoesController {
 
@@ -21,8 +23,9 @@ public class CargoesController {
 	CargoService service;
 
 	@RequestMapping(value = "/cargoes", method = RequestMethod.GET)
-	public Iterable<Cargo> getCargoes() {
-		return service.findAllCargoes();
+	public Page<Cargo> getCargoes(Pageable pageable) {
+		Page page = service.findAllCargoes(pageable);
+		return page;
 	}
 
 	@RequestMapping(value = "/cargoes/{Id}", method = RequestMethod.GET)

@@ -5,9 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Supplier {
@@ -38,7 +36,7 @@ public class Supplier {
 	}
 
 	/**
-	 * @param location the location to set
+	 * @param suburb the location to set
 	 */
 	public void setSuburb(Suburb sub) {
 		this.suburb = sub;

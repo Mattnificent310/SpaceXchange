@@ -4,6 +4,8 @@ package com.example.rest.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,17 +19,18 @@ import com.example.rest.models.Location;
 import com.example.rest.models.Vehicle;
 import com.example.rest.services.CityService;
 import com.example.rest.services.VehicleService;
-@CrossOrigin(origins = {"http://localhost:4200"}, maxAge = 6000, allowCredentials = "false") 
+@CrossOrigin(origins = {"http://localhost:4200"}, maxAge = 6000, allowCredentials = "false")
 @RestController
 public class CitiesController {
-	
+
 @Autowired
 CityService service;
 
 @RequestMapping(value = "/cities", method = RequestMethod.GET)
-public Iterable<City> getCities()
+public Page<City>getCities(Pageable pageable)
 {
-  return service.findAllCities();
+  Page page = service.findAllCities(pageable);
+  return page;
 }
 
 @RequestMapping(value = "/cities/{Id}", method = RequestMethod.GET)
