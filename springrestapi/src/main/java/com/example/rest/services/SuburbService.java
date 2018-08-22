@@ -8,28 +8,29 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.rest.models.City;
-import com.example.rest.repositories.CityRepo;
+import com.example.rest.models.Suburb;
+import com.example.rest.repositories.SuburbRepo;
 
 @Service
-public class CityService {
+public class SuburbService {
 	 @Autowired
-	 CityRepo repo;
-	 public Page<City>findAllCities(Pageable pageable)
+	 SuburbRepo repo;
+	 public Page<Suburb>findAllSuburbs(Pageable pageable)
 		{
 			return repo.findAll(pageable);
 		}
 
-		public Optional<City> findCityById(long id)
+		public Optional<Suburb> findSuburbById(long id)
 		{
 			return repo.findById(id);
 		}
 
-		public void createCity(City model)
+		public void createSuburb(Suburb model)
 		{
 			 repo.save(model);
 		}
 
-		public void removeCity(long id)
+		public void removeSuburb(long id)
 		{
 			repo.deleteById(id);
 		}
