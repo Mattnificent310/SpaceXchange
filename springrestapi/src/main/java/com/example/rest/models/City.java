@@ -1,10 +1,14 @@
 package com.example.rest.models;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 public class City {
@@ -13,8 +17,10 @@ public class City {
 		private Long cityId;
 		private String cityName;
 		private String cityCode;
-		@ManyToOne(optional = true)
-	    private Province provinceId;
+		@ManyToOne(optional = true, fetch = FetchType.LAZY)
+		@NotFound(action = NotFoundAction.IGNORE)
+	    public Province province = new Province();
+		
 		/**
 		 * @return the id
 		 */
@@ -56,14 +62,15 @@ public class City {
 		 * @return the province
 		 */
 		public Province getProvince() {
-			return provinceId;
+			return province;
 		}
 		/**
-		 * @param province the province to set
+		 * @param (Province)object the province to set
 		 */
 		public void setProvince(Province province) {
-			this.provinceId = province;
+			this.province = (Province)province;
 		}
+		
 
 
 }

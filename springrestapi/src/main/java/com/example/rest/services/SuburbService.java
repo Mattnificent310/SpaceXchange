@@ -25,9 +25,9 @@ public class SuburbService {
 			return repo.findById(id);
 		}
 
-		public void createSuburb(Suburb model)
+		public Suburb createSuburb(Suburb suburb)
 		{
-			 repo.save(model);
+			 return repo.save(suburb);
 		}
 
 		public void removeSuburb(long id)

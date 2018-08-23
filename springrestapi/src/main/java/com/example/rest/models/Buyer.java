@@ -1,11 +1,17 @@
 package com.example.rest.models;
 
 import java.sql.Date;
+import java.util.Optional;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 
 @Entity
@@ -21,8 +27,9 @@ public class Buyer {
 	private Date birthDate;
 	private String contactNumber;
 	private String emailAddress;
-	@ManyToOne(optional = true)
-	private Suburb suburb;
+	@ManyToOne(optional = true, fetch = FetchType.LAZY)
+	@NotFound(action = NotFoundAction.IGNORE)
+	public Suburb suburb = new Suburb();
 	private String unitNumber;
 	private String complexName;
 	private String farmName;

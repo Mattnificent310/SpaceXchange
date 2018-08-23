@@ -1,10 +1,14 @@
 package com.example.rest.models;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 public class Suburb {
@@ -13,8 +17,9 @@ public class Suburb {
 	private Long suburbId;
 	private String suburbName;
 	private String zipCode;
-	@ManyToOne(optional = true)
-	private City city;
+	@ManyToOne(optional = true, fetch = FetchType.LAZY)
+	@NotFound(action = NotFoundAction.IGNORE)
+	public City city = new City();
 
 	/**
 	 * @return the id

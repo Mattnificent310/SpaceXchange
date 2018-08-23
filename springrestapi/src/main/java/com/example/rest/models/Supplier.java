@@ -2,10 +2,14 @@ package com.example.rest.models;
 
 import java.sql.Date;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 public class Supplier {
@@ -20,8 +24,9 @@ public class Supplier {
 	private Date brithDate;
 	private String phone;
 	private String email;
-	@ManyToOne(optional = true)
-	private Suburb suburb;
+	@ManyToOne(optional = true, fetch = FetchType.LAZY)
+	@NotFound(action = NotFoundAction.IGNORE)
+	public Suburb suburb;
 	private String unitNumber;
 	private String complexName;
 	private String farmName;
