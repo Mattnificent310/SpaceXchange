@@ -1,5 +1,6 @@
 package com.example.rest.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import com.example.rest.services.CountryService;
 import com.example.rest.services.ProvinceService;
 import com.example.rest.services.SuburbService;
 
+import io.swagger.annotations.ApiKeyAuthDefinition;
 import io.swagger.annotations.ApiOperation;
 
 @CrossOrigin(origins = { "http://localhost:4200" }, maxAge = 6000, allowCredentials = "false")
@@ -41,9 +43,9 @@ public class BuyersController {
 
 	@RequestMapping(value = "/buyers", method = RequestMethod.GET)
 	@ApiOperation(value = "Retrieves a paged set of buyers", response = Buyer.class, produces = "application/json")
-	public Page<Buyer> getBuyers(Pageable pageable) {
-		Page page = service.findAllBuyers(pageable);
-		return page;
+	public List<Buyer> getBuyers(Pageable pageable) {
+		Page<Buyer> page = service.findAllBuyers(pageable);
+		return page.getContent();
 	}
 
 	@RequestMapping(value = "/buyers/{Id}", method = RequestMethod.GET)

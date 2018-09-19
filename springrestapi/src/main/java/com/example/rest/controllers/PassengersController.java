@@ -1,5 +1,6 @@
 package com.example.rest.controllers;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,9 +41,9 @@ public class PassengersController {
 
 	@RequestMapping(value = "/passengers", method = RequestMethod.GET)
 	@ApiOperation(value = "Retrieves a paged set of passengers", response = Passenger.class, produces = "application/json")
-	public Page<Passenger> getPassengers(Pageable pageable) {
-		Page page = service.findAllPassengers(pageable);
-		return page;
+	public List<Passenger> getPassengers(Pageable pageable) {
+		Page<Passenger> page = service.findAllPassengers(pageable);
+		return page.getContent();
 	}
 
 	@RequestMapping(value = "/passengers/{Id}", method = RequestMethod.GET)

@@ -1,6 +1,7 @@
 package com.example.rest.controllers;
 
 import java.util.Optional;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,10 +26,10 @@ public class ContractsController {
 
 	@RequestMapping(value = "/contracts", method = RequestMethod.GET)
 	@ApiOperation(value = "Retrieves a paged set of contracts", response = Contract.class, produces = "application/json")
-	public Page<Contract> getContracts(Pageable pageable)
+	public List<Contract> getContracts(Pageable pageable)
 	{
-		Page page = service.findAllContracts(pageable);
-		return page;
+		Page<Contract> page = service.findAllContracts(pageable);
+		return page.getContent();
 	}
 
 	@RequestMapping(value = "/contract/{Id}", method = RequestMethod.GET)

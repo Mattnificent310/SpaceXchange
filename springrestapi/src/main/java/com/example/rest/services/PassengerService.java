@@ -16,18 +16,15 @@ public Page<Passenger>findAllPassengers(Pageable pageable)
 	return repo.findAll(pageable);
 }
 
-public Optional<Passenger> findPassengerById(long id)
-{
-	return repo.findById(id);
-}
+	public Optional<Passenger> findPassengerById(long id) {
+		return repo.findById(id);
+	}
 
-public void createPassenger(Passenger model)
-{
-	 repo.save(model);
-}
+	public void createPassenger(Passenger model) {
+		repo.save(model);
+	}
 
-public void removePassenger(long id)
-{
-	repo.deleteById(id);
-}
+	public void removePassenger(long id) {
+		repo.deleteById(id);
+	}
 }
