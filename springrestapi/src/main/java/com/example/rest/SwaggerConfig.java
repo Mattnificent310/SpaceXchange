@@ -111,9 +111,9 @@ public class SwaggerConfig {
           .build();
     }
     
-    private ApiInfo apiInfo() {
-        ApiInfo apiInfo = new ApiInfo("SPACE EXCHANGE API", "Some custom description of API.", "API TOS", "Terms of service", 
-        		          new Contact("Matt Maree", "www.example.com", "info@space-exchange.com"), "License of API", "API license URL", Collections.emptyList());
-        return apiInfo;
-    }
+//    private ApiInfo apiInfo() {
+//        ApiInfo apiInfo = new ApiInfo("SPACE EXCHANGE API", "Some custom description of API.", "API TOS", "Terms of service", 
+//        		          new Contact("Matt Maree", "www.example.com", "info@space-exchange.com"), "License of API", "API license URL", Collections.emptyList());
+//        return apiInfo;
+//    }
 }
