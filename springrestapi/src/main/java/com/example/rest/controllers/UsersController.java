@@ -15,7 +15,7 @@ import com.example.rest.models.User;
 import com.example.rest.services.UserService;
 
 import io.swagger.annotations.ApiOperation;
-@CrossOrigin(origins = {"http://localhost:4200", "http://spacexchange.net", "http://34.244.138.179", "http://www.spacexchange.net"}, maxAge = 6000, allowCredentials = "false")
+@CrossOrigin(origins = {"http://localhost:4200", "http://34.244.138.179", "http://www.spacexchange.net"}, maxAge = 6000, allowCredentials = "false")
 @RestController
 
 public class UsersController {
