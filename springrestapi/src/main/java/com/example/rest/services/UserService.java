@@ -30,4 +30,8 @@ public class UserService {
 	{
 		repo.deleteById(id);
 	}
+	
+	public boolean exists(long id) {
+		return repo.existsById(id);
+	}
 }
