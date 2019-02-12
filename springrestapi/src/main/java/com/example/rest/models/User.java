@@ -13,6 +13,7 @@ public class User {
 	private String name;
 	private String surname;
 	private String birthDate;
+	private String gender;
 	private String phone;
 	private String email;
 	private String password;
@@ -87,6 +88,19 @@ public class User {
 	 */
 	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
+	}
+	
+	/**
+	 * @return the gender
+	 */
+	public String getGender() {
+		return gender;
+	}
+	/**
+	 * @param gender the gender to set
+	 */
+	public void setGender(String gender) {
+		this.birthDate = gender;
 	}
 	/**
 	 * @return the phone
