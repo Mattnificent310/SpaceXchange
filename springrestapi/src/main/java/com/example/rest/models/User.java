@@ -100,7 +100,7 @@ public class User {
 	 * @param gender the gender to set
 	 */
 	public void setGender(String gender) {
-		this.birthDate = gender;
+		this.gender = gender;
 	}
 	/**
 	 * @return the phone
